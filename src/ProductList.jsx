@@ -233,24 +233,29 @@ function ProductList({ onHomeClick }) {
         textDecoration: 'none',
     }
 
-    const handleHomeClick = (e) => {
-        e.preventDefault();
-        onHomeClick();
+     const handleAddToCart = (plant) => {
+        // Dispatch the addItem action with the plant details to add it to the cart.                
+        dispatch(addItem({ name: plant.name, image: plant.image, cost: plant.cost }));
     };
-
     const handleCartClick = (e) => {
         e.preventDefault();
-        setShowCart(true); // Set showCart to true when cart icon is clicked
+        setShowCart(true); // Show the cart when the cart link is clicked
     };
     const handlePlantsClick = (e) => {
         e.preventDefault();
-        setShowPlants(true); // Set showAboutUs to true when "About Us" link is clicked
-        setShowCart(false); // Hide the cart when navigating to About Us
+        setShowCart(false); // Hide the cart when the plants link is clicked
     };
-
+    const handleHomeClick = (e) => {
+        e.preventDefault();
+        onHomeClick(); // Call the onHomeClick function passed as a prop
+    };
     const handleContinueShopping = (e) => {
         e.preventDefault();
-        setShowCart(false);
+        setShowCart(false); // Hide the cart when continuing shopping
+    };
+    const calculateTotalAmount = () => {
+        // Calculate the total amount of all items in the cart
+        return cart.reduce((total, item) => total + (parseFloat(item.cost.substring(1)) * item.quantity), 0).toFixed(2);
     };
     return (
         <div>
@@ -274,7 +279,34 @@ function ProductList({ onHomeClick }) {
             </div>
             {!showCart ? (
                 <div className="product-grid">
-
+               {plantsArray.map((category, index) => ( // Loop through each category in plantsArray
+  <div key={index}> {/* Unique key for each category div */}
+    <h1>
+      <div>{category.category}</div> {/* Display the category name */}
+    </h1>
+    <div className="product-list"> {/* Container for the list of plant cards */}
+      {category.plants.map((plant, plantIndex) => ( // Loop through each plant in the current category
+        <div className="product-card" key={plantIndex}> {/* Unique key for each plant card */}
+          <img 
+            className="product-image" 
+            src={plant.image} // Display the plant image
+            alt={plant.name} // Alt text for accessibility
+          />
+          <div className="product-title">{plant.name}</div> {/* Display plant name */}
+          {/* Display other plant details like description and cost */}
+          <div className="product-description">{plant.description}</div> {/* Display plant description */}
+          <div className="product-cost">${plant.cost}</div> {/* Display plant cost */}
+          <button
+            className="product-button"
+            onClick={() => handleAddToCart(plant)} // Handle adding plant to cart
+          >
+            Add to Cart
+          </button>
+        </div>
+      ))}
+    </div>
+  </div>
+))}
 
                 </div>
             ) : (
