@@ -1,46 +1,58 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux'; // Add these imports
+import { addToCart } from './CartSlice.jsx'; // Import addToCart action
 import './ProductList.css'
-import CartItem from './CartItem';
+import CartItem from './CartItem.jsx';
 
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
-    const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
+    const [showPlants, setShowPlants] = useState(false);
+    
+    // Add Redux hooks
+    const dispatch = useDispatch();
+    const cartItems = useSelector(state => state.cart.items);
 
     const plantsArray = [
         {
             category: "Air Purifying Plants",
             plants: [
                 {
+                    id: 1, // Added unique ID
                     name: "Snake Plant",
                     image: "https://cdn.pixabay.com/photo/2021/01/22/06/04/snake-plant-5939187_1280.jpg",
                     description: "Produces oxygen at night, improving air quality.",
                     cost: "$15"
                 },
                 {
+                    id: 2, // Added unique ID
                     name: "Spider Plant",
                     image: "https://cdn.pixabay.com/photo/2018/07/11/06/47/chlorophytum-3530413_1280.jpg",
                     description: "Filters formaldehyde and xylene from the air.",
                     cost: "$12"
                 },
                 {
+                    id: 3, // Added unique ID
                     name: "Peace Lily",
                     image: "https://cdn.pixabay.com/photo/2019/06/12/14/14/peace-lilies-4269365_1280.jpg",
                     description: "Removes mold spores and purifies the air.",
                     cost: "$18"
                 },
                 {
+                    id: 4, // Added unique ID
                     name: "Boston Fern",
                     image: "https://cdn.pixabay.com/photo/2020/04/30/19/52/boston-fern-5114414_1280.jpg",
                     description: "Adds humidity to the air and removes toxins.",
                     cost: "$20"
                 },
                 {
+                    id: 5, // Added unique ID
                     name: "Rubber Plant",
                     image: "https://cdn.pixabay.com/photo/2020/02/15/11/49/flower-4850729_1280.jpg",
                     description: "Easy to care for and effective at removing toxins.",
                     cost: "$17"
                 },
                 {
+                    id: 6, // Added unique ID
                     name: "Aloe Vera",
                     image: "https://cdn.pixabay.com/photo/2018/04/02/07/42/leaf-3283175_1280.jpg",
                     description: "Purifies the air and has healing properties for skin.",
@@ -52,36 +64,42 @@ function ProductList({ onHomeClick }) {
             category: "Aromatic Fragrant Plants",
             plants: [
                 {
+                    id: 7, // Added unique ID
                     name: "Lavender",
                     image: "https://images.unsplash.com/photo-1611909023032-2d6b3134ecba?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                     description: "Calming scent, used in aromatherapy.",
                     cost: "$20"
                 },
                 {
+                    id: 8, // Added unique ID
                     name: "Jasmine",
                     image: "https://images.unsplash.com/photo-1592729645009-b96d1e63d14b?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                     description: "Sweet fragrance, promotes relaxation.",
                     cost: "$18"
                 },
                 {
+                    id: 9, // Added unique ID
                     name: "Rosemary",
                     image: "https://cdn.pixabay.com/photo/2019/10/11/07/12/rosemary-4541241_1280.jpg",
                     description: "Invigorating scent, often used in cooking.",
                     cost: "$15"
                 },
                 {
+                    id: 10, // Added unique ID
                     name: "Mint",
                     image: "https://cdn.pixabay.com/photo/2016/01/07/18/16/mint-1126282_1280.jpg",
                     description: "Refreshing aroma, used in teas and cooking.",
                     cost: "$12"
                 },
                 {
+                    id: 11, // Added unique ID
                     name: "Lemon Balm",
                     image: "https://cdn.pixabay.com/photo/2019/09/16/07/41/balm-4480134_1280.jpg",
                     description: "Citrusy scent, relieves stress and promotes sleep.",
                     cost: "$14"
                 },
                 {
+                    id: 12, // Added unique ID
                     name: "Hyacinth",
                     image: "https://cdn.pixabay.com/photo/2019/04/07/20/20/hyacinth-4110726_1280.jpg",
                     description: "Hyacinth is a beautiful flowering plant known for its fragrant.",
@@ -93,36 +111,42 @@ function ProductList({ onHomeClick }) {
             category: "Insect Repellent Plants",
             plants: [
                 {
+                    id: 13, // Added unique ID
                     name: "oregano",
                     image: "https://cdn.pixabay.com/photo/2015/05/30/21/20/oregano-790702_1280.jpg",
                     description: "The oregano plants contains compounds that can deter certain insects.",
                     cost: "$10"
                 },
                 {
+                    id: 14, // Added unique ID
                     name: "Marigold",
                     image: "https://cdn.pixabay.com/photo/2022/02/22/05/45/marigold-7028063_1280.jpg",
                     description: "Natural insect repellent, also adds color to the garden.",
                     cost: "$8"
                 },
                 {
+                    id: 15, // Added unique ID
                     name: "Geraniums",
                     image: "https://cdn.pixabay.com/photo/2012/04/26/21/51/flowerpot-43270_1280.jpg",
                     description: "Known for their insect-repelling properties while adding a pleasant scent.",
                     cost: "$20"
                 },
                 {
+                    id: 16, // Added unique ID
                     name: "Basil",
                     image: "https://cdn.pixabay.com/photo/2016/07/24/20/48/tulsi-1539181_1280.jpg",
                     description: "Repels flies and mosquitoes, also used in cooking.",
                     cost: "$9"
                 },
                 {
+                    id: 17, // Added unique ID
                     name: "Lavender",
                     image: "https://images.unsplash.com/photo-1611909023032-2d6b3134ecba?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                     description: "Calming scent, used in aromatherapy.",
                     cost: "$20"
                 },
                 {
+                    id: 18, // Added unique ID
                     name: "Catnip",
                     image: "https://cdn.pixabay.com/photo/2015/07/02/21/55/cat-829681_1280.jpg",
                     description: "Repels mosquitoes and attracts cats.",
@@ -134,36 +158,42 @@ function ProductList({ onHomeClick }) {
             category: "Medicinal Plants",
             plants: [
                 {
+                    id: 19, // Added unique ID
                     name: "Aloe Vera",
                     image: "https://cdn.pixabay.com/photo/2018/04/02/07/42/leaf-3283175_1280.jpg",
                     description: "Soothing gel used for skin ailments.",
                     cost: "$14"
                 },
                 {
+                    id: 20, // Added unique ID
                     name: "Echinacea",
                     image: "https://cdn.pixabay.com/photo/2014/12/05/03/53/echinacea-557477_1280.jpg",
                     description: "Boosts immune system, helps fight colds.",
                     cost: "$16"
                 },
                 {
+                    id: 21, // Added unique ID
                     name: "Peppermint",
                     image: "https://cdn.pixabay.com/photo/2017/07/12/12/23/peppermint-2496773_1280.jpg",
                     description: "Relieves digestive issues and headaches.",
                     cost: "$13"
                 },
                 {
+                    id: 22, // Added unique ID
                     name: "Lemon Balm",
                     image: "https://cdn.pixabay.com/photo/2019/09/16/07/41/balm-4480134_1280.jpg",
                     description: "Calms nerves and promotes relaxation.",
                     cost: "$14"
                 },
                 {
+                    id: 23, // Added unique ID
                     name: "Chamomile",
                     image: "https://cdn.pixabay.com/photo/2016/08/19/19/48/flowers-1606041_1280.jpg",
                     description: "Soothes anxiety and promotes sleep.",
                     cost: "$15"
                 },
                 {
+                    id: 24, // Added unique ID
                     name: "Calendula",
                     image: "https://cdn.pixabay.com/photo/2019/07/15/18/28/flowers-4340127_1280.jpg",
                     description: "Heals wounds and soothes skin irritations.",
@@ -175,36 +205,42 @@ function ProductList({ onHomeClick }) {
             category: "Low Maintenance Plants",
             plants: [
                 {
+                    id: 25, // Added unique ID
                     name: "ZZ Plant",
                     image: "https://images.unsplash.com/photo-1632207691143-643e2a9a9361?q=80&w=464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
                     description: "Thrives in low light and requires minimal watering.",
                     cost: "$25"
                 },
                 {
+                    id: 26, // Added unique ID
                     name: "Pothos",
                     image: "https://cdn.pixabay.com/photo/2018/11/15/10/32/plants-3816945_1280.jpg",
                     description: "Tolerates neglect and can grow in various conditions.",
                     cost: "$10"
                 },
                 {
+                    id: 27, // Added unique ID
                     name: "Snake Plant",
                     image: "https://cdn.pixabay.com/photo/2021/01/22/06/04/snake-plant-5939187_1280.jpg",
                     description: "Needs infrequent watering and is resilient to most pests.",
                     cost: "$15"
                 },
                 {
+                    id: 28, // Added unique ID
                     name: "Cast Iron Plant",
                     image: "https://cdn.pixabay.com/photo/2017/02/16/18/04/cast-iron-plant-2072008_1280.jpg",
                     description: "Hardy plant that tolerates low light and neglect.",
                     cost: "$20"
                 },
                 {
+                    id: 29, // Added unique ID
                     name: "Succulents",
                     image: "https://cdn.pixabay.com/photo/2016/11/21/16/05/cacti-1846147_1280.jpg",
                     description: "Drought-tolerant plants with unique shapes and colors.",
                     cost: "$18"
                 },
                 {
+                    id: 30, // Added unique ID
                     name: "Aglaonema",
                     image: "https://cdn.pixabay.com/photo/2014/10/10/04/27/aglaonema-482915_1280.jpg",
                     description: "Requires minimal care and adds color to indoor spaces.",
@@ -213,6 +249,7 @@ function ProductList({ onHomeClick }) {
             ]
         }
     ];
+
     const styleObj = {
         backgroundColor: '#4CAF50',
         color: '#fff!important',
@@ -234,10 +271,25 @@ function ProductList({ onHomeClick }) {
         textDecoration: 'none',
     }
 
-     const handleAddToCart = (plant) => {
-        // Dispatch the addItem action with the plant details to add it to the cart.                
-        dispatch(addItem({ name: plant.name, image: plant.image, cost: plant.cost }));
+    // Check if item is already in cart
+    const isInCart = (plantId) => {
+        return cartItems.some(item => item.id === plantId);
     };
+
+    // Fixed handleAddToCart function
+    const handleAddToCart = (plant) => {
+        console.log('Adding plant to cart:', plant); // Debug log
+        
+        // Dispatch the addToCart action with the plant details
+        dispatch(addToCart({
+            id: plant.id,
+            name: plant.name,
+            image: plant.image,
+            cost: plant.cost,
+            description: plant.description
+        }));
+    };
+
     const handleCartClick = (e) => {
         e.preventDefault();
         setShowCart(true); // Show the cart when the cart link is clicked
@@ -250,14 +302,29 @@ function ProductList({ onHomeClick }) {
         e.preventDefault();
         onHomeClick(); // Call the onHomeClick function passed as a prop
     };
-    const handleContinueShopping = (e) => {
-        e.preventDefault();
-        setShowCart(false); // Hide the cart when continuing shopping
-    };
+  // Add this to your ProductList component:
+
+const handleContinueShopping = (e) => {
+    console.log('🛒 Continue Shopping called in ProductList!'); // Add this
+    e.preventDefault();
+    console.log('📝 Current showCart state:', showCart); // Add this
+    setShowCart(false);
+    console.log('📝 Setting showCart to false'); // Add this
+};
+
+// Also add this at the top of your return statement to monitor state:
+console.log('🔍 ProductList render - showCart:', showCart);
+
+
+
+    // Fixed calculateTotalAmount function
     const calculateTotalAmount = () => {
-        // Calculate the total amount of all items in the cart
-        return cart.reduce((total, item) => total + (parseFloat(item.cost.substring(1)) * item.quantity), 0).toFixed(2);
+        return cartItems.reduce((total, item) => total + (parseFloat(item.cost.substring(1)) * item.quantity), 0).toFixed(2);
     };
+
+    // Calculate total items in cart for display
+    const totalItemsInCart = cartItems.reduce((total, item) => total + item.quantity, 0);
+
     return (
         <div>
             <div className="navbar" style={styleObj}>
@@ -271,44 +338,76 @@ function ProductList({ onHomeClick }) {
                             </div>
                         </a>
                     </div>
-
                 </div>
                 <div style={styleObjUl}>
                     <div> <a href="#" onClick={(e) => handlePlantsClick(e)} style={styleA}>Plants</a></div>
-                    <div> <a href="#" onClick={(e) => handleCartClick(e)} style={styleA}><h1 className='cart'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="IconChangeColor" height="68" width="68"><rect width="156" height="156" fill="none"></rect><circle cx="80" cy="216" r="12"></circle><circle cx="184" cy="216" r="12"></circle><path d="M42.3,72H221.7l-26.4,92.4A15.9,15.9,0,0,1,179.9,176H84.1a15.9,15.9,0,0,1-15.4-11.6L32.5,37.8A8,8,0,0,0,24.8,32H8" fill="none" stroke="#faf9f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" id="mainIconPathAttribute"></path></svg></h1></a></div>
+                    <div> 
+                        <a href="#" onClick={(e) => handleCartClick(e)} style={styleA}>
+                            <h1 className='cart'>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" id="IconChangeColor" height="68" width="68">
+                                    <rect width="156" height="156" fill="none"></rect>
+                                    <circle cx="80" cy="216" r="12"></circle>
+                                    <circle cx="184" cy="216" r="12"></circle>
+                                    <path d="M42.3,72H221.7l-26.4,92.4A15.9,15.9,0,0,1,179.9,176H84.1a15.9,15.9,0,0,1-15.4-11.6L32.5,37.8A8,8,0,0,0,24.8,32H8" fill="none" stroke="#faf9f9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" id="mainIconPathAttribute"></path>
+                                </svg>
+                                {totalItemsInCart > 0 && (
+                                    <span style={{
+                                        position: 'absolute',
+                                        top: '-5px',
+                                        right: '-5px',
+                                        backgroundColor: 'red',
+                                        color: 'white',
+                                        borderRadius: '50%',
+                                        width: '25px',
+                                        height: '25px',
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        fontSize: '12px'
+                                    }}>
+                                        {totalItemsInCart}
+                                    </span>
+                                )}
+                            </h1>
+                        </a>
+                    </div>
                 </div>
             </div>
             {!showCart ? (
                 <div className="product-grid">
-               {plantsArray.map((category, index) => ( // Loop through each category in plantsArray
-  <div key={index}> {/* Unique key for each category div */}
-    <h1>
-      <div>{category.category}</div> {/* Display the category name */}
-    </h1>
-    <div className="product-list"> {/* Container for the list of plant cards */}
-      {category.plants.map((plant, plantIndex) => ( // Loop through each plant in the current category
-        <div className="product-card" key={plantIndex}> {/* Unique key for each plant card */}
-          <img 
-            className="product-image" 
-            src={plant.image} // Display the plant image
-            alt={plant.name} // Alt text for accessibility
-          />
-          <div className="product-title">{plant.name}</div> {/* Display plant name */}
-          {/* Display other plant details like description and cost */}
-          <div className="product-description">{plant.description}</div> {/* Display plant description */}
-          <div className="product-cost">${plant.cost}</div> {/* Display plant cost */}
-          <button
-            className="product-button"
-            onClick={() => handleAddToCart(plant)} // Handle adding plant to cart
-          >
-            Add to Cart
-          </button>
-        </div>
-      ))}
-    </div>
-  </div>
-))}
-
+                    {plantsArray.map((category, index) => (
+                        <div key={index}>
+                            <h1>
+                                <div>{category.category}</div>
+                            </h1>
+                            <div className="product-list">
+                                {category.plants.map((plant, plantIndex) => (
+                                    <div className="product-card" key={plant.id}>
+                                        <img 
+                                            className="product-image" 
+                                            src={plant.image}
+                                            alt={plant.name}
+                                        />
+                                        <div className="product-title">{plant.name}</div>
+                                        <div className="product-description">{plant.description}</div>
+                                        <div className="product-cost">{plant.cost}</div>
+                                        <button
+                                            className={`product-button ${isInCart(plant.id) ? 'added-to-cart' : ''}`}
+                                            onClick={() => handleAddToCart(plant)}
+                                            disabled={isInCart(plant.id)}
+                                            style={{
+                                                backgroundColor: isInCart(plant.id) ? '#gray' : '#4CAF50',
+                                                opacity: isInCart(plant.id) ? 0.6 : 1,
+                                                cursor: isInCart(plant.id) ? 'not-allowed' : 'pointer'
+                                            }}
+                                        >
+                                            {isInCart(plant.id) ? 'Added to Cart' : 'Add to Cart'}
+                                        </button>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
                 </div>
             ) : (
                 <CartItem onContinueShopping={handleContinueShopping} />
