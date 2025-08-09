@@ -305,17 +305,11 @@ function ProductList({ onHomeClick }) {
   // Add this to your ProductList component:
 
 const handleContinueShopping = (e) => {
-    console.log('🛒 Continue Shopping called in ProductList!'); // Add this
-    e.preventDefault();
-    console.log('📝 Current showCart state:', showCart); // Add this
-    setShowCart(false);
-    console.log('📝 Setting showCart to false'); // Add this
+    navigate('/products'); // Redirects to the product listing page
 };
-
-// Also add this at the top of your return statement to monitor state:
-console.log('🔍 ProductList render - showCart:', showCart);
-
-
+return (
+    <button onClick={handleContinueShopping}>Continue Shopping</button>
+);
 
     // Fixed calculateTotalAmount function
     const calculateTotalAmount = () => {
