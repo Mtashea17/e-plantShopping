@@ -231,24 +231,16 @@ body {
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
 }
 
-/* Sale Badge - Updated to use class instead of pseudo-element */
-.sale-badge {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #e74c3c;
-    color: white;
-    padding: 5px 12px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: bold;
-    text-transform: uppercase;
-    z-index: 2;
-}
-
-/* Remove the old pseudo-element sale badge */
+/* Pseudo-elements - Sale badge */
 .product-card::before {
-    display: none;
+    content: "SALE";
+    background-color: #e74c3c;
+    color: #fff;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px 10px;
+    border-radius: 0 0 0 5px;
 }
 
 /* Product Image */

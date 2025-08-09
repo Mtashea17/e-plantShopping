@@ -290,26 +290,26 @@ function ProductList({ onHomeClick }) {
         }));
     };
 
+    const handleHomeClick = (e) => {
+        e.preventDefault(); //
+        onHomeClick(); // Call the onHomeClick function passed as a prop
+        setShowCart(false); // Hide the cart when navigating to home
+    };
+
     const handleCartClick = (e) => {
         e.preventDefault();
-        setShowCart(true); // Show the cart when the cart link is clicked
+        setShowCart(true); // Set showCart to true when cart icon is clicked
     };
     const handlePlantsClick = (e) => {
         e.preventDefault();
-        setShowCart(false); // Hide the cart when the plants link is clicked
+        setShowPlants(true); // Set showAboutUs to true when "About Us" link is clicked
+        setShowCart(false); // Hide the cart when navigating to About Us
     };
-    const handleHomeClick = (e) => {
-        e.preventDefault();
-        onHomeClick(); // Call the onHomeClick function passed as a prop
+    const handleContinueShopping = (e) => {
+        e.preventDefault();  // Prevent default link behavior
+        setShowCart(false); // Hide the cart when continuing shopping
+        setShowPlants(true); // Show the plants section
     };
-  // Add this to your ProductList component:
-
-const handleContinueShopping = (e) => {
-    navigate('/products'); // Redirects to the product listing page
-};
-return (
-    <button onClick={handleContinueShopping}>Continue Shopping</button>
-);
 
     // Fixed calculateTotalAmount function
     const calculateTotalAmount = () => {
