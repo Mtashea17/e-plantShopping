@@ -3,7 +3,7 @@
     max-width: 1000px;
     margin: 0 auto;
     padding: 20px;
-    background: linear-gradient(135deg, #f7b42c 0%, #00cba9 100%);
+  background: linear-gradient(135deg, #f8f6f0 0%, #b7e4c7 100%);
     border-radius: 18px;
     box-shadow: 0 4px 16px 0 rgba(247, 180, 44, 0.15);
     text-align: justify;
@@ -12,13 +12,16 @@
   .about-us-heading {
     font-size: 32px;
     font-weight: bold;
-    color: #333;
+  color: #6c757d;
     margin-bottom: 20px;
   }
   
   .about-us-description {
     font-size: 18px;
-    color: #188676;
+  color: #b7b7e4;
+body {
+  overflow: hidden;
+}
     margin-bottom: 30px;
     text-align: center;
   }
