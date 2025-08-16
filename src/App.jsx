@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import ProductList from './ProductList';
+import ProductList from './ProductList.jsx';
 import './App.css';
 import AboutUs from './AboutUs';
 
