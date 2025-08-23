@@ -1,191 +1,359 @@
-/* LandingPage.css */
+/* Enhanced App.css with Paradise Nursery styling integration */
+
+:root {
+    --ivory-mist: #F8F5F2;
+    --sage-velvet: #A8BBA2;
+    --eucalyptus-smoke: #DDE3DC;
+    --gold-leaf: #C1A875;
+    --charcoal-soil: #3C3C3B;
+    --terracotta-blush: #D9A58A;
+    --lavender-drift: #C8BFE7;
+}
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  /* Removed overflow: hidden to allow background image to show */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-color: var(--ivory-mist);
+    color: var(--charcoal-soil);
+    line-height: 1.6;
+}
+
+.app-container {
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .landing-page {
-  position: relative;
-  width: 100vw;
-  min-height: 100vh;
-  /* Removed background gradient to allow .background-image to show */
+    position: relative;
+    width: 100vw;
+    min-height: 100vh;
+    transition: opacity 0.5s ease;
+}
+
+.landing-page.fade-out {
+    opacity: 0;
 }
 
 .background-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url('https://media.istockphoto.com/id/1342107506/photo/happy-african-american-father-and-son-watering-plants-together.jpg?s=612x612&w=0&k=20&c=SIqh3NEcxS4L3NCGpEAgMsqEUQKVtQ2Dbvm0MuI2_sI=');
-  background-size: 100% 100%;
-  background-position: center ;
-  filter: brightness(0.8);
-  z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://media.istockphoto.com/id/1342107506/photo/happy-african-american-father-and-son-watering-plants-together.jpg?s=612x612&w=0&k=20&c=SIqh3NEcxS4L3NCGpEAgMsqEUQKVtQ2Dbvm0MuI2_sI=');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.7);
+    z-index: -1;
 }
 
 .content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 80vh;
-  min-width: 80vw;
-  top: 0;
-  backdrop-filter: blur(4px);
-  position: relative;
-  z-index: 1;
-  background: rgba(0, 128, 128, 0.3);
-  gap: 20px;
-  border-radius: 24px;
-  box-shadow: 0 8px 32px 0 rgba(0, 128, 128, 0.37);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 40px 20px;
+    gap: 40px;
+    position: relative;
+    z-index: 1;
 }
 
 .landing_content {
-  margin-top: 60px;
-  margin-left: 0;
-  z-index: 1;
-  text-align: center;
-  width: 350px;
-  height: auto;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: center;
-  gap: 10px;
-  background: linear-gradient(135deg, #f7b42c 0%, #00cba9 100%);
-  border-radius: 18px;
-  padding: 30px 20px;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 50px 40px;
+    text-align: center;
+    max-width: 500px;
+    box-shadow: 0 20px 40px rgba(60, 60, 59, 0.15);
+    border: 2px solid rgba(168, 187, 162, 0.3);
+    transition: all 0.3s ease;
 }
 
-.content p,
-.content h1 {
-  color: #fff;
+.landing_content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(60, 60, 59, 0.2);
 }
 
-.content h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
-}
-
-.content p {
-  font-size: 25px;
-  color: #ffe082;
+.landing_content h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--charcoal-soil);
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .divider {
-  width: 50px;
-  height: 2px;
-  background: linear-gradient(90deg, #00cba9, #f7b42c);
-  margin: 10px 0;
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--sage-velvet), var(--gold-leaf));
+    margin: 20px auto;
+    border-radius: 2px;
+}
+
+.landing_content p {
+    font-size: 1.5rem;
+    color: var(--sage-velvet);
+    margin-bottom: 30px;
+    font-style: italic;
+    font-weight: 500;
 }
 
 .get-started-button {
-  padding: 15px 25px;
-  font-size: 23px;
-  border: none;
-  border-radius: 5px;
-  background: linear-gradient(90deg, #ff6f61, #00cba9);
-  color: white;
-  cursor: pointer;
-  transition: background 0.3s ease;
-  margin-top: 40px;
-  box-shadow: 0 2px 8px 0 rgba(0, 203, 169, 0.15);
+    background: linear-gradient(135deg, var(--gold-leaf), var(--terracotta-blush));
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(193, 168, 117, 0.3);
+    margin-top: 20px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .get-started-button:hover {
-  background: linear-gradient(90deg, #f7b42c, #00cba9);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(193, 168, 117, 0.4);
+    background: linear-gradient(135deg, var(--terracotta-blush), var(--gold-leaf));
 }
 
-/* ProductList.css */
+.get-started-button:active {
+    transform: translateY(0);
+}
+
+.aboutus_container {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 40px;
+    max-width: 600px;
+    box-shadow: 0 20px 40px rgba(60, 60, 59, 0.15);
+    border: 2px solid rgba(168, 187, 162, 0.3);
+    transition: all 0.3s ease;
+}
+
+.aboutus_container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(60, 60, 59, 0.2);
+}
+
+/* Product List Container */
 .product-list-container {
-  position: absolute;
-  overflow-x: hidden;
-  top: 100vh;
-  /* Initial position off-screen */
-  left: 0;
-  width: 100vw;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #00cba9 0%, #f7b42c 100%);
-  /* Adjust background opacity as needed */
-  transition: top 0.5s ease;
-  overflow-y: auto;
-  z-index: 2;
-  /* Ensure it's above landing page content */
-  backdrop-filter: blur(5px);
+    position: absolute;
+    top: 100vh;
+    left: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background-color: var(--ivory-mist);
+    transition: top 0.5s ease;
+    overflow-y: auto;
+    z-index: 2;
 }
 
 .product-list-container.visible {
-  top: 0;
+    top: 0;
 }
 
+/* About Us Component Styling Enhancement */
+.about-us-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0;
+    background: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    text-align: justify;
+}
+
+.about-us-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--charcoal-soil);
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.about-us-description {
+    font-size: 1.3rem;
+    color: var(--sage-velvet);
+    margin-bottom: 25px;
+    text-align: center;
+    font-weight: 600;
+    font-style: italic;
+}
+
+.about-us-content {
+    font-size: 1rem;
+    color: var(--charcoal-soil);
+    margin-bottom: 20px;
+    line-height: 1.8;
+    opacity: 0.9;
+}
+
+.plant_logo_right,
+.plant_logo_left {
+    margin: 15px 0;
+}
+
+.plant_logo_right img,
+.plant_logo_left img {
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.plant_logo_right img:hover,
+.plant_logo_left img:hover {
+    transform: scale(1.1);
+}
+
+/* Cart quantity count styling */
+.cart_quantity_count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: linear-gradient(135deg, var(--terracotta-blush), var(--gold-leaf));
+    color: #fff;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    z-index: 2;
+    box-shadow: 0 4px 12px rgba(217, 165, 138, 0.3);
+    border: 2px solid #fff;
+}
+
+/* Media Queries for Responsiveness */
 @media screen and (max-width: 1024px) {
-  .content {
-    min-width: 95vw;
-    min-height: 70vh;
-    padding: 16px;
-  }
-  .landing_content {
-    width: 90vw;
-    padding: 16px;
-    font-size: 18px;
-  }
-  .product-list-container {
-    width: 95vw;
-    min-height: 70vh;
-    padding: 16px;
-  }
+    .content {
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px 20px;
+    }
+    
+    .landing_content,
+    .aboutus_container {
+        max-width: 90vw;
+        padding: 30px 25px;
+    }
+    
+    .landing_content h1 {
+        font-size: 2.8rem;
+    }
+    
+    .about-us-heading {
+        font-size: 2rem;
+    }
+    
+    .about-us-description {
+        font-size: 1.1rem;
+    }
+    
+    .about-us-content {
+        font-size: 0.95rem;
+    }
 }
 
 @media screen and (max-width: 768px) {
-  .content {
-    min-width: 98vw;
-    min-height: 60vh;
-    padding: 12px;
-    flex-direction: column;
-  }
-  .landing_content {
-    width: 98vw;
-    padding: 12px;
-    font-size: 16px;
-  }
-  .product-list-container {
-    width: 98vw;
-    min-height: 60vh;
-    padding: 12px;
-  }
+    .content {
+        min-height: 80vh;
+        padding: 20px 15px;
+        gap: 25px;
+    }
+    
+    .landing_content,
+    .aboutus_container {
+        max-width: 95vw;
+        padding: 25px 20px;
+    }
+    
+    .landing_content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .landing_content p {
+        font-size: 1.2rem;
+    }
+    
+    .get-started-button {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+    
+    .about-us-heading {
+        font-size: 1.8rem;
+    }
+    
+    .about-us-description {
+        font-size: 1rem;
+    }
+    
+    .about-us-content {
+        font-size: 0.9rem;
+    }
 }
 
 @media screen and (max-width: 480px) {
-  .content {
-    min-width: 100vw;
-    min-height: 50vh;
-    padding: 8px;
-  }
-  .landing_content {
-    width: 100vw;
-    padding: 8px;
-    font-size: 13px;
-  }
-  .product-list-container {
-    width: 100vw;
-    min-height: 50vh;
-    padding: 8px;
-  }
-}
-
-.cart_quantity_count {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  background: linear-gradient(90deg, #ff6f61, #00cba9);
-  color: #fff;
-  border-radius: 50%;
-  padding: 6px 12px;
-  font-size: 18px;
-  font-weight: bold;
-  z-index: 2;
-  box-shadow: 0 2px 8px 0 rgba(0, 203, 169, 0.15);
-  border: 2px solid #fff;
+    .content {
+        padding: 15px 10px;
+        gap: 20px;
+    }
+    
+    .landing_content,
+    .aboutus_container {
+        max-width: 98vw;
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+    
+    .landing_content h1 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+    
+    .landing_content p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    
+    .get-started-button {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+    
+    .divider {
+        width: 60px;
+        margin: 15px auto;
+    }
+    
+    .about-us-heading {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+    }
+    
+    .about-us-description {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+    
+    .about-us-content {
+        font-size: 0.85rem;
+        margin-bottom: 15px;
+    }
 }

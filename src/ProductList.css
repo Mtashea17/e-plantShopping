@@ -1,29 +1,41 @@
+/* Enhanced ProductList.css with Paradise Nursery styling integration */
+
+:root {
+    --ivory-mist: #F8F5F2;
+    --sage-velvet: #A8BBA2;
+    --eucalyptus-smoke: #DDE3DC;
+    --gold-leaf: #C1A875;
+    --charcoal-soil: #3C3C3B;
+    --terracotta-blush: #D9A58A;
+    --lavender-drift: #C8BFE7;
+}
 
 /* Reset some default styles */
 body, h1, ul {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 /* Set a background color */
 body {
     font-family: 'Poppins', Arial, sans-serif;
-    background: linear-gradient(135deg, #0a3d1f, #0f2417);
-    color: #333;
+    background-color: var(--ivory-mist);
+    color: var(--charcoal-soil);
+    line-height: 1.6;
     overflow-x: hidden;
     max-width: 100vw;
 }
 
-/* Navbar */
+/* Navbar with Paradise Nursery styling */
 .navbar {
-    background: linear-gradient(135deg, #0a3d1f, #124a2c);
+    background: linear-gradient(135deg, var(--sage-velvet) 0%, var(--eucalyptus-smoke) 100%);
     color: #fff!important;
-    padding: 15px;
+    padding: 15px 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(168, 187, 162, 0.2);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -44,8 +56,10 @@ body {
 
 .navbar .ul div a {
     color: white;
-    font-size: 30px;
+    font-size: 1.3rem;
     text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
     transition: all 0.3s ease;
 }
@@ -55,16 +69,253 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/* Brand styling similar to Paradise Nursery */
+.tag {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    width: 400px;
+}
+
+.tag img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: white;
+    padding: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.tag img:hover {
+    transform: scale(1.1);
+}
+
+.tag a {
+    text-decoration: none;
+}
+
+.tag_home_link h3,
+.luxury h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: -5px;
+    color: white;
+}
+
+.luxury {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    font-size: 19px;
+}
+
+.luxury i {
+    font-style: italic;
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Cart icon with Paradise Nursery styling */
+.cart {
+    background: var(--gold-leaf);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.cart:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(193, 168, 117, 0.3);
+}
+
+.cart_quantity_count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--terracotta-blush);
+    color: white;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 700;
+    box-shadow: 0 2px 8px rgba(217, 165, 138, 0.3);
+}
+
 /* Product Container */
 .product-container {
-    padding: 20px;
+    padding: 40px 20px;
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
     box-sizing: border-box;
 }
 
-/* Category Tabs */
+/* Category section styling */
+.product-grid > div {
+    margin-bottom: 60px;
+}
+
+.product-grid > div h1 {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--charcoal-soil);
+}
+
+.product-grid > div h1::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--sage-velvet), var(--gold-leaf));
+    border-radius: 2px;
+}
+
+/* Product List styling */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 20px 0;
+    width: 100%;
+    justify-items: center;
+}
+
+/* Product Card with Paradise Nursery styling */
+.product-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(60, 60, 59, 0.08);
+    transition: all 0.4s ease;
+    position: relative;
+    border: 2px solid transparent;
+    max-width: 350px;
+    width: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(60, 60, 59, 0.15);
+    border-color: var(--sage-velvet);
+}
+
+.product-card::before {
+    content: "SALE";
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--terracotta-blush);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    z-index: 10;
+    box-shadow: 0 2px 8px rgba(217, 165, 138, 0.3);
+}
+
+/* Product image styling */
+.product-image {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image {
+    transform: scale(1.1);
+}
+
+/* Product info section */
+.product-card > div:last-child {
+    padding: 25px;
+    text-align: center;
+}
+
+.product-title,
+.product-name {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--charcoal-soil);
+    margin-bottom: 8px;
+}
+
+.product-price,
+.product-cost {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--sage-velvet);
+    margin-bottom: 12px;
+}
+
+.product-description {
+    color: var(--charcoal-soil);
+    font-size: 0.9rem;
+    opacity: 0.8;
+    margin-bottom: 20px;
+    font-style: italic;
+    line-height: 1.5;
+}
+
+/* Product button with Paradise Nursery styling */
+.product-button,
+.add-to-cart-button {
+    background: linear-gradient(135deg, var(--gold-leaf), var(--terracotta-blush));
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.product-button:hover,
+.add-to-cart-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(193, 168, 117, 0.3);
+}
+
+.product-button:active,
+.add-to-cart-button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.add-to-cart-button:disabled {
+    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Category Tabs (if you want to add them later) */
 .category-tabs {
     display: flex;
     flex-wrap: wrap;
@@ -77,7 +328,7 @@ body {
 }
 
 .category-tab {
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    background: linear-gradient(135deg, var(--sage-velvet), var(--eucalyptus-smoke));
     color: white;
     border: none;
     padding: 12px 20px;
@@ -89,182 +340,29 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     outline: none;
     white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    max-width: 200px;
 }
 
 .category-tab:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-    background: linear-gradient(135deg, #c0392b, #e74c3c);
 }
 
 .category-tab.active {
-    background: linear-gradient(135deg, #f39c12, #f1c40f);
+    background: linear-gradient(135deg, var(--gold-leaf), var(--terracotta-blush));
     transform: translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }
 
-/* Product Grid */
-.product-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
-    padding: 20px 0;
-    width: 100%;
-    box-sizing: border-box;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Product Card */
-.product-card {
-    flex: 0 0 calc(33.33% - 20px); /* Adjust width for 3 cards per row with 20px gap */
-    max-width: calc(26.33% - 20px); /* Adjust max width for 3 cards per row with 20px gap */
-    margin-bottom: 20px;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
-    position: relative;
-    gap: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-    transition: all 0.3s ease;
-}
-
-/* Sale Badge */
-.product-card::before {
-    content: "SALE";
-    position: absolute;
-    top: 0;
-    right: 0;
-    background: linear-gradient(135deg, #f39c12, #f1c40f);
-    color: white;
-    padding: 8px 15px;
-    font-weight: bold;
-    font-size: 14px;
-    z-index: 10;
-    border-radius: 0 15px 0 15px;
-    box-shadow: -2px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-/* Pseudo-classes - Hover effect on product button */
-.product-card:hover {
-    transform: scale(1.05);
-    transition: transform 0.3s ease-in-out;
-    z-index: 1;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
-}
-
-.product-title {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.product-price {
-    color: #e74c3c;
-    font-size: 1.2rem;
-    margin-bottom: 10px;
-    font-weight: 700;
-}
-
-.product-image {
-    max-width: 100%;
-    height: 200px; /* Adjust height for better consistency */
-    object-fit: cover;
-    border-radius: 8px;
-    transition: transform 0.5s ease;
-}
-
-.product-card:hover .product-image {
-    transform: scale(1.05);
-}
-
-.product-button {
-    background-color: #e74c3c;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-    margin-top: 10px;
-}
-
-.product-button:hover {
-    background-color: #c0392b;
-}
-
-.product-name {
-    font-size: 1.4rem;
-    margin: 10px 0;
-    color: #2c3e50;
-    font-weight: 600;
-}
-
-.product-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    width: 100%;
-}
-
-.product-description {
-    color: #7f8c8d;
-    font-size: 0.95rem;
-    margin-bottom: 15px;
-    line-height: 1.5;
-}
-
-.product-price-cart {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 15px;
-}
-
-.add-to-cart-button {
-    background: linear-gradient(135deg, #e74c3c, #c0392b);
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 25px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.add-to-cart-button:hover:not(:disabled) {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(135deg, #c0392b, #e74c3c);
-}
-
-.add-to-cart-button:active:not(:disabled) {
-    transform: translateY(0);
-}
-
-.add-to-cart-button:disabled {
-    background: linear-gradient(135deg, #95a5a6, #7f8c8d);
-    cursor: not-allowed;
-    transform: none;
-    box-shadow: none;
-}
-
-/* Add to cart notification */
+/* Notification styling */
 .add-to-cart-notification {
     position: fixed;
     top: 20px;
     right: 20px;
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
+    background: linear-gradient(135deg, var(--sage-velvet), var(--eucalyptus-smoke));
     color: white;
     padding: 15px 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(168, 187, 162, 0.3);
     z-index: 1000;
     transform: translateX(150%);
     transition: transform 0.3s ease;
@@ -275,129 +373,69 @@ body {
     transform: translateX(0);
 }
 
-.tag_home_link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-left: 50px;
-    color: white;
-    text-decoration: none;
-    font-size: 20px;
-}
-
-.tag_home_link h3 {
-    font-size: 30px;
-}
-
-.tag a {
-    text-decoration: none;
-}
-
-.tag {
-    width: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.tag img {
-    height: 70px;
-    width: 70px;
-    border-radius: 70%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-}
-
-.tag img:hover {
-    transform: scale(1.1);
-}
-
-.luxury {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 650px;
-    font-size: 19px;
-}
-
-.cart {
-    color: white;
-    display: flex;
-    transition: transform 0.3s ease;
-}
-
-.cart:hover {
-    transform: scale(1.1);
-}
-
-.cart_quantity_count {
-    margin-top: 16px;
-    margin-left: 27px;
-    position: absolute;
-    font-size: 29px;
-}
-
-.plantname_heading {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.plant_heading {
-    width: 400px;
-    text-align: center;
-    margin: 20px;
-    border: 1px solid rgb(5, 4, 4);
-    border-left: none;
-    border-right: none;
-}
-
 /* Media Queries for Responsiveness */
 @media (max-width: 1200px) {
-    .product-card {
-        flex: 1 1 calc(33.33% - 20px);
-        max-width: calc(33.33% - 20px);
+    .product-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
     }
     
-    .navbar .ul {
-        width: auto;
+    .product-grid > div h1 {
+        font-size: 2.5rem;
     }
 }
 
 @media (max-width: 992px) {
     .luxury {
         width: auto;
+        font-size: 16px;
+    }
+    
+    .navbar {
+        padding: 15px 20px;
     }
 }
 
 @media (max-width: 768px) {
-    .product-card {
-        flex: 1 1 calc(50% - 20px);
-        max-width: calc(50% - 20px);
+    .product-list {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
     
     .navbar {
         flex-direction: column;
         align-items: center;
-        padding: 10px;
+        padding: 20px;
+        gap: 15px;
     }
     
     .tag {
-        margin-bottom: 20px;
+        margin-bottom: 15px;
         text-align: center;
+        width: auto;
     }
     
     .luxury {
         width: 100%;
         font-size: 14px;
         justify-content: center;
+        text-align: center;
+    }
+    
+    .product-grid > div h1 {
+        font-size: 2rem;
+    }
+    
+    .container,
+    .product-container {
+        padding: 20px 15px;
     }
     
     .ul {
         display: flex;
         flex-direction: column;
         gap: 10px;
+        width: 100%;
     }
     
     .ul div {
@@ -406,30 +444,24 @@ body {
 }
 
 @media (max-width: 480px) {
-    .product-grid {
-        grid-template-columns: 1fr;
-    }
-    
     .product-card {
         max-width: 100%;
     }
     
-    .product-name {
+    .product-name,
+    .product-title {
         font-size: 1.1rem;
     }
     
-    .product-price {
+    .product-price,
+    .product-cost {
         font-size: 1.1rem;
     }
     
+    .product-button,
     .add-to-cart-button {
-        padding: 8px 15px;
+        padding: 10px 20px;
         font-size: 0.9rem;
-    }
-    
-    .category-tab {
-        width: 100%;
-        margin-bottom: 5px;
     }
     
     .tag img {
@@ -437,7 +469,12 @@ body {
         width: 40px;
     }
     
-    .tag_home_link h3 {
-        font-size: 18px;
+    .tag_home_link h3,
+    .luxury h3 {
+        font-size: 1.2rem;
+    }
+    
+    .product-grid > div h1 {
+        font-size: 1.5rem;
     }
 }
