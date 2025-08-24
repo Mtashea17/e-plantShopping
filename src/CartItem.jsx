@@ -41,6 +41,10 @@ const CartItem = ({ onContinueShopping }) => {
     return (parseFloat(item.cost.substring(1)) * item.quantity).toFixed(2);
   };
 
+    const handleCheckout = () => {
+      alert("Coming Soon to Home Grown!");
+    };
+
   return (
     <div className="cart-container">
       <h2 style={{ color: 'black' }}>Total Cart Amount: ${calculateTotalAmount()}</h2>
