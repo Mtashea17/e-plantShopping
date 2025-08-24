@@ -233,12 +233,9 @@ function ProductList({ onHomeClick, onAddToCartNotification }) {
         setShowCart(false); // Hide the cart when navigating to About Us
     };
 
+    // Fix: handleContinueShopping should hide the cart
     const handleContinueShopping = () => {
-        console.log('Setting showCart to false');
         setShowCart(false);
-        setTimeout(() => {
-            console.log('showCart after setShowCart:', showCart);
-        }, 100);
     };
 
 
@@ -278,7 +275,7 @@ function ProductList({ onHomeClick, onAddToCartNotification }) {
             </nav>
 
             {/* Main Content */}
-            <div className="container product-list-bg">
+            <div className="container">
                     {!showCart ? (
                         plantsArray.map((categoryObj, categoryIndex) => (
                             <div key={categoryIndex} className="category-section">
