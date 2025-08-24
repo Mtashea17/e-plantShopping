@@ -1,0 +1,591 @@
+
+
+/* Paradise Nursery - Complete CSS Stylesheet */
+
+/* Reset and Base Styles */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+/* CSS Custom Properties - Color Palette */
+:root {
+	--ivory-mist: #F8F5F2;
+	--sage-velvet: #A8BBA2;
+	--eucalyptus-smoke: #DDE3DC;
+	--gold-leaf: #C1A875;
+	--charcoal-soil: #3C3C3B;
+	--terracotta-blush: #D9A58A;
+	--lavender-drift: #C8BFE7;
+}
+
+/* Body and Typography */
+body {
+	font-family: 'Montserrat', sans-serif;
+	background-color: var(--ivory-mist);
+	color: var(--charcoal-soil);
+	line-height: 1.6;
+}
+
+/* Header and Navigation */
+.navbar {
+	background: linear-gradient(135deg, var(--sage-velvet) 0%, var(--eucalyptus-smoke) 100%);
+	padding: 15px 30px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	box-shadow: 0 4px 15px rgba(168, 187, 162, 0.2);
+}
+
+.brand {
+	display: flex;
+	align-items: center;
+	gap: 15px;
+	color: var(--eucalyptus-smoke);
+	text-decoration: none;
+}
+
+.brand img {
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+	background: var(--ivory-mist);
+	padding: 8px;
+	box-shadow: 0 4px 12px rgba(60, 60, 59, 0.08);
+}
+
+.brand-text h1 {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.8rem;
+	font-weight: 700;
+	margin-bottom: -5px;
+}
+
+.brand-text p {
+	font-style: italic;
+	font-size: 0.9rem;
+	opacity: 0.9;
+}
+
+.nav-center {
+	color: var(--eucalyptus-smoke);
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.8rem;
+	font-weight: 600;
+}
+
+/* Cart Icon */
+.cart-icon {
+	background: var(--gold-leaf);
+	color: var(--ivory-mist);
+	border: none;
+	padding: 12px 20px;
+	border-radius: 25px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	font-size: 1rem;
+	position: relative;
+}
+
+.cart-icon:hover {
+	transform: scale(1.05);
+	box-shadow: 0 6px 20px rgba(193, 168, 117, 0.3);
+}
+
+.cart-count {
+	position: absolute;
+	top: -8px;
+	right: -8px;
+	background: var(--terracotta-blush);
+	color: var(--ivory-mist);
+	border-radius: 50%;
+	width: 24px;
+	height: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 0.8rem;
+	font-weight: 700;
+}
+
+/* Main Container */
+.container {
+	max-width: 1400px;
+	margin: 0 auto;
+	padding: 40px 20px;
+}
+
+/* Section Title */
+.section-title {
+	text-align: center;
+	margin-bottom: 50px;
+	position: relative;
+}
+
+.section-title h2 {
+	font-family: 'Cormorant Garamond', serif;
+	font-size: 3rem;
+	font-weight: 700;
+	color: var(--charcoal-soil);
+	margin-bottom: 10px;
+}
+
+.section-title::after {
+	content: '';
+	position: absolute;
+	bottom: -15px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 100px;
+	height: 3px;
+	background: linear-gradient(90deg, var(--sage-velvet), var(--gold-leaf));
+	border-radius: 2px;
+}
+
+/* Product Grid Layout */
+.product-grid {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 30px;
+	margin-bottom: 40px;
+}
+
+/* Product Cards */
+.product-card {
+	background: var(--ivory-mist);
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow: 0 8px 25px rgba(60, 60, 59, 0.08);
+	transition: all 0.4s ease;
+	position: relative;
+	border: 2px solid transparent;
+}
+
+.product-card:hover {
+	transform: translateY(-8px);
+	box-shadow: 0 20px 40px rgba(168, 187, 162, 0.15);
+	border-color: var(--sage-velvet);
+}
+
+/* Product Images */
+.product-image-container {
+	position: relative;
+	width: 100%;
+	height: 280px;
+	overflow: hidden;
+}
+
+.product-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	transition: transform 0.5s ease;
+}
+
+.product-card:hover .product-image {
+	transform: scale(1.1);
+}
+
+/* Sale Badge */
+.sale-badge {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	background: var(--terracotta-blush);
+	color: var(--ivory-mist);
+	padding: 6px 12px;
+	border-radius: 20px;
+	font-size: 0.8rem;
+	font-weight: 600;
+	letter-spacing: 1px;
+	z-index: 2;
+}
+
+/* Product Information */
+.product-info {
+	padding: 25px;
+	text-align: center;
+}
+
+.product-name {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 1.9rem;
+	font-style: normal;
+	font-weight: 600;
+	color: var(--charcoal-soil);
+	margin-bottom: 8px;
+}
+
+.product-price {
+	font-size: 20px;
+	font-family: "Cormorant Garamond", serif;
+	font-weight: bold;
+	color: var(--sage-velvet);
+	margin-bottom: 12px;
+}
+
+.product-description {
+	font-size: 1rem;
+	font-family: "Montserrat", sans-serif;
+	font-weight: bold;
+	color: var(--charcoal-soil);
+	opacity: 0.8;
+	margin-bottom: 20px;
+	font-style: italic;
+	line-height: 1.5;
+}
+
+/* Add to Cart Button */
+.add-to-cart-btn {
+	background: linear-gradient(135deg, var(--gold-leaf), var(--terracotta-blush));
+	color: var(--black);
+	border: none;
+	padding: 12px 30px;
+	border-radius: 25px;
+	font-weight: 600;
+	cursor: pointer;
+	transition: all 0.3s ease;
+	font-size: 1rem;
+	width: 100%;
+}
+
+.add-to-cart-btn:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 8px 20px rgba(193, 168, 117, 0.3);
+}
+
+.add-to-cart-btn:active {
+	transform: translateY(0);
+}
+
+/* Notifications */
+.notification {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	background: linear-gradient(135deg, var(--sage-velvet), var(--eucalyptus-smoke));
+	color: var(--black);
+	padding: 15px 25px;
+	border-radius: 15px;
+	box-shadow: 0 8px 25px rgba(168, 187, 162, 0.3);
+	transform: translateX(400px);
+	transition: transform 0.4s ease;
+	z-index: 1000;
+	font-weight: 600;
+}
+
+.notification.show {
+	transform: translateX(0);
+}
+
+/* Legacy Support - Original Classes from Your Code */
+body, h1, ul { 
+	margin: 0; 
+	padding: 0; 
+}
+
+.product-card:hover {
+	transform: scale(1.06);
+	z-index: 2;
+	box-shadow: 0 20px 40px rgba(44,180,99,0.22);
+	border-color: #388e3c;
+}
+
+.product-title, .product-name {
+	font-weight: 600;
+	margin-bottom: 10px;
+	font-size: 1.8rem;
+	font-family: "Montserrat", sans-serif;
+	font-style: normal;
+	color: var(--charcoal-soil);
+}
+
+.product-price, .product-cost {
+	font-size: 1.5rem;
+	font-family: "Cormorant Garamond", serif;
+	font-weight: 600;
+	margin-top: 8px;
+	color: var(--sage-velvet);
+}
+
+.product-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 40px;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	margin-bottom: 32px;
+}
+
+.product-price-cart {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-family: "Cormorant Garamond", serif;
+	font-optical-sizing: auto;
+	font-weight: 600;
+	font-style: normal;
+	margin-top: 1px;
+	padding: 8px 12px;
+	border-radius: 12px;
+}
+
+/* Legacy Buttons */
+.product-button, .add-to-cart-button {
+	background: linear-gradient(135deg, var(--sage-velvet), var(--gold-leaf));
+	color: var(--ivory-mist);
+	border: none;
+	font-family: 'Montserrat', sans-serif;
+	padding: 8px 0;
+	cursor: pointer;
+	transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	opacity: 0;
+	transform: translateY(10px);
+}
+
+.product-button:disabled, .add-to-cart-button:disabled {
+	background: linear-gradient(135deg, var(--eucalyptus-smoke), var(--sage-velvet));
+	color: var(--ivory-mist);
+	cursor: not-allowed;
+	opacity: 0.7;
+}
+
+.product-button:hover:not(:disabled), .add-to-cart-button:hover:not(:disabled) {
+	background: linear-gradient(135deg, var(--gold-leaf), var(--sage-velvet));
+	transform: scale(1.08);
+}
+
+.add-to-cart-button:active:not(:disabled) {
+	transform: scale(1.02);
+}
+
+.add-to-cart-button:disabled {
+	background: linear-gradient(135deg, var(--lavender-drift), var(--charcoal-soil));
+	color: var(--ivory-mist);
+	box-shadow: none;
+}
+
+/* Legacy Notifications */
+.add-to-cart-notification {
+	position: fixed;
+	right: 20px;
+	background: linear-gradient(135deg, var(--sage-velvet), var(--gold-leaf));
+	color: var(--black);
+	padding: 18px 32px;
+	border-radius: 18px;
+	box-shadow: 0 8px 32px rgba(1, 42, 23, 0.837);
+	z-index: 1000;
+	font-weight: 700;
+	font-size: 18px;
+	transition: transform 0.3s, opacity 0.3s;
+	top: 20px;
+	transform: translateX(150%);
+}
+
+.add-to-cart-notification.show {
+	transform: translateX(0);
+}
+
+/* Tag & Cart Legacy Styles */
+.tag_home_link {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	margin-left: 50px;
+	color: var(--eucalyptus-smoke);
+	text-decoration: none;
+	font-size: 20px;
+}
+
+.tag_home_link h3 { 
+	font-size: 30px; 
+}
+
+.tag a { 
+	text-decoration: none; 
+}
+
+.tag {
+	width: 400px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.tag img {
+	height: 70px;
+	width: 70px;
+	border-radius: 70%;
+	box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+	transition: transform 0.3s;
+}
+
+.tag img:hover { 
+	transform: scale(1.1); 
+}
+
+.luxury {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 650px;
+	font-size: 19px;
+}
+
+.cart {
+	color: var(--eucalyptus-smoke);
+	display: flex;
+	transition: transform 0.3s;
+}
+
+.cart:hover { 
+	transform: scale(1.1); 
+}
+
+.cart_quantity_count {
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	font-size: 32px;
+	font-style: bold;
+}
+
+.plantname_heading {
+	display: flex;
+	font-family: "Cormorant Garamond", serif;
+	font-optical-sizing: auto;
+	font-weight: 500;
+	font-style: normal;
+	align-items: center;
+	justify-content: center;
+}
+
+.plant_heading {
+	font-family: "Cormorant Garamond", serif;
+	font-optical-sizing: auto;
+	font-weight: 700;
+	font-style: normal;
+	text-align: center;
+	width: 100%;
+	position: absolute;
+	animation: underlineExpand 1.4s forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+	.product-card {
+		flex: 1 1 calc(33.33% - 20px);
+		max-width: calc(33.33% - 20px);
+	}
+    
+	.navbar .ul { 
+		width: auto; 
+	}
+}
+
+@media (max-width: 992px) {
+	.product-grid {
+		grid-template-columns: repeat(2, 1fr);
+		gap: 25px;
+	}
+    
+	.section-title h2 {
+		font-size: 2.5rem;
+	}
+    
+	.luxury { 
+		width: auto; 
+	}
+}
+
+@media (max-width: 768px) {
+	.navbar {
+		flex-direction: column;
+		gap: 15px;
+		padding: 20px;
+	}
+    
+	.product-grid {
+		grid-template-columns: 1fr;
+		gap: 20px;
+	}
+    
+	.section-title h2 {
+		font-size: 2rem;
+	}
+    
+	.container {
+		padding: 20px 15px;
+	}
+    
+	.product-card {
+		flex: 1 1 calc(50% - 20px);
+		max-width: calc(50% - 20px);
+		padding: 12px 6px;
+		border-radius: 12px;
+	}
+    
+	.tag { 
+		margin-bottom: 20px; 
+		text-align: center; 
+	}
+    
+	.luxury { 
+		width: 100%; 
+		font-size: 14px; 
+		justify-content: center; 
+	}
+    
+	.ul { 
+		display: flex; 
+		flex-direction: column; 
+		gap: 10px; 
+	}
+    
+	.ul div { 
+		text-align: center; 
+	}
+}
+
+@media (max-width: 480px) {
+	.product-grid { 
+		grid-template-columns: 1fr; 
+	}
+    
+	.product-card {
+		max-width: 100%;
+		padding: 8px 2px;
+		border-radius: 8px;
+	}
+    
+	.product-name, .product-price { 
+		font-size: 1.1rem; 
+	}
+    
+	.add-to-cart-button {
+		padding: 8px 15px;
+		font-size: 0.9rem;
+		border-radius: 8px;
+	}
+    
+	.category-tab { 
+		width: 100%; 
+		margin-bottom: 5px; 
+	}
+    
+	.tag img { 
+		height: 40px; 
+		width: 40px; 
+	}
+    
+	.tag_home_link h3 { 
+		font-size: 18px; 
+	}
+}
