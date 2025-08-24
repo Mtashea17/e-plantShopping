@@ -218,20 +218,29 @@ function ProductList({ onHomeClick, onAddToCartNotification }) {
     ];
     // ...existing code...
 
-    const handleHomeClick = (e) => {
-        if (e && e.preventDefault) e.preventDefault();
-        onHomeClick();
-    };
+   // Alternative approach - more defensive programming
 
-    const handleCartClick = (e) => {
-        if (e && e.preventDefault) e.preventDefault();
-        setShowCart(true); // Set showCart to true when cart icon is clicked
-    };
-     const handlePlantsClick = (e) => {
-        if (e && e.preventDefault) e.preventDefault();
-        setShowPlants(true); // Set showAboutUs to true when "About Us" link is clicked
-        setShowCart(false); // Hide the cart when navigating to About Us
-    };
+const handleHomeClick = (e) => {
+    if (e?.preventDefault) {
+        e.preventDefault();
+    }
+    onHomeClick();
+};
+
+const handleCartClick = (e) => {
+    if (e?.preventDefault) {
+        e.preventDefault();
+    }
+    setShowCart(true);
+};
+
+const handlePlantsClick = (e) => {
+    if (e?.preventDefault) {
+        e.preventDefault();
+    }
+    setShowPlants(true);
+    setShowCart(false);
+};
 
     // Fix: handleContinueShopping should hide the cart
     const handleContinueShopping = () => {

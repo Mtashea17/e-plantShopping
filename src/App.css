@@ -1,11 +1,27 @@
-/* Product List Background Image */
-.product-list-bg {
-    /* background-image removed: file does not exist */
+/* Background with fallback options */
+
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Fallback gradient background */
+    background: linear-gradient(135deg, 
+        var(--sage-velvet) 0%, 
+        var(--eucalyptus-smoke) 50%, 
+        var(--ivory-mist) 100%);
+    
+    /* Primary image - will fallback to gradient if this fails */
+    background-image: url('https://images.unsplash.com/photo-1416879595882-3373a0480b5b?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+    
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
+    filter: brightness(0.7);
+    z-index: -1;
 }
+
 /* Enhanced App.css with Paradise Nursery styling integration */
 
 :root {
