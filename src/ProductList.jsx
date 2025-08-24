@@ -234,7 +234,7 @@ function ProductList({ onHomeClick, onAddToCartNotification }) {
     };
 
     const handleContinueShopping = (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Navigate to product list
         setShowCart(false);
     };
 
