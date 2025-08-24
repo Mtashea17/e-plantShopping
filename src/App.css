@@ -1,6 +1,6 @@
 /* Product List Background Image */
 .product-list-bg {
-    background-image: url('../assets/17224941_v992-aum-blogbanner-08.jpg');
+    /* background-image removed: file does not exist */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
