@@ -16,7 +16,10 @@ function App() {
   const handleHomeClick = () => {
     setShowProductList(false);
   };
-
+const handleContinueShopping = () => {
+    setShowProductList(true);
+  };
+  
   // Show notification with product name
   const showNotification = (productName) => {
     setNotification({ visible: true, message: `${productName} added to cart!` });
