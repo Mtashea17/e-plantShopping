@@ -487,11 +487,3 @@ body {
         font-size: 1.5rem;
     }
 }
-
-.product-list-bg {
-  background-image: url('../assets/17224941_v992-aum-blogbanner-08.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  min-height: 100vh;
-}

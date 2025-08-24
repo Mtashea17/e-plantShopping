@@ -12,10 +12,10 @@ const CartItem = ({ onContinueShopping }) => {
     return cart.reduce((total, item) => total + (parseFloat(item.cost.substring(1)) * item.quantity), 0).toFixed(2);
   };
 
-  const handleContinueShopping = (e) => {
-    e.preventDefault();
-    onContinueShopping();
-  };
+ const handleContinueShopping = (e) => {
+  if (e?.preventDefault) e.preventDefault();
+  // continue logic...
+};
 
   const handleIncrement = (item) => {
     const updatedItem = { ...item, quantity: item.quantity + 1 };
@@ -68,9 +68,8 @@ const CartItem = ({ onContinueShopping }) => {
       </div>
       <div style={{ marginTop: '20px', color: 'black' }} className='total_cart_amount'></div>
       <div className="continue_shopping_btn">
-        <a href="#" className="get-started-button" onClick={handleContinueShopping}>Continue Shopping</a>
-        <br />
-      <button className="get-started-button" onClick={handleContinueShopping}>Continue Shopping</button>
+        <button className="get-started-button" onClick={onContinueShopping}>Continue Shopping</button>
+        <button className="get-started-button" onClick={handleCheckout} style={{marginLeft: '10px'}}>Checkout</button>
       </div>
     </div>
   );
