@@ -172,7 +172,7 @@
 .cart-item-delete {
     background: linear-gradient(135deg, #e74c3c, #c0392b);
     border: none;
-    color: white;
+    color: rgb(25, 4, 4);
     font-size: 0.9rem;
     font-weight: 600;
     cursor: pointer;
@@ -198,7 +198,7 @@
     font-weight: 700;
     color: var(--charcoal-soil);
     text-align: center;
-    background: white;
+    background: rgb(12, 2, 2);
     padding: 20px 30px;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(60, 60, 59, 0.08);
@@ -265,7 +265,7 @@
 .empty-cart-message {
     text-align: center;
     padding: 60px 20px;
-    background: white;
+    background: rgb(8, 1, 1);
     border-radius: 20px;
     box-shadow: 0 8px 25px rgba(60, 60, 59, 0.08);
     max-width: 500px;

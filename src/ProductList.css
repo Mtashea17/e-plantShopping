@@ -19,7 +19,7 @@ body, h1, ul {
 
 /* Set a background color */
 body {
-    font-family: 'Poppins', Arial, sans-serif;
+    font-family: "Montserrat", sans-serif;
     background-color: var(--ivory-mist);
     color: var(--charcoal-soil);
     line-height: 1.6;
@@ -30,7 +30,7 @@ body {
 /* Navbar with Paradise Nursery styling */
 .navbar {
     background: linear-gradient(135deg, var(--sage-velvet) 0%, var(--eucalyptus-smoke) 100%);
-    color: #fff!important;
+    color: black !important;
     padding: 15px 30px;
     display: flex;
     justify-content: space-between;
@@ -54,9 +54,16 @@ body {
     margin-right: 30px;
 }
 
+.navbar a,
+.navbar .nav-center,
+.navbar .brand-text h1,
+.navbar .brand-text p,
+.navbar .cart-icon {
+    color: black !important;
+}
 .navbar .ul div a {
-    color: white;
-    font-size: 1.3rem;
+    color: black;
+    font-size: 12px;
     text-decoration: none;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
@@ -259,7 +266,7 @@ body {
 .product-title,
 .product-name {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.4rem;
+    font-size: 15px;
     font-weight: 600;
     color: var(--charcoal-soil);
     margin-bottom: 8px;
@@ -268,7 +275,9 @@ body {
 .product-price,
 .product-cost {
     font-size: 1.3rem;
+    font-family: "Cormorant Garamond", serif;
     font-weight: 700;
+    font-style: bold;
     color: var(--sage-velvet);
     margin-bottom: 12px;
 }
@@ -278,7 +287,7 @@ body {
     font-size: 0.9rem;
     opacity: 0.8;
     margin-bottom: 20px;
-    font-style: italic;
+    font-style: italic, bold;
     line-height: 1.5;
 }
 
@@ -329,7 +338,7 @@ body {
 
 .category-tab {
     background: linear-gradient(135deg, var(--sage-velvet), var(--eucalyptus-smoke));
-    color: white;
+    color: black;
     border: none;
     padding: 12px 20px;
     border-radius: 25px;
@@ -359,7 +368,7 @@ body {
     top: 20px;
     right: 20px;
     background: linear-gradient(135deg, var(--sage-velvet), var(--eucalyptus-smoke));
-    color: white;
+    color: black;
     padding: 15px 25px;
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(168, 187, 162, 0.3);
@@ -477,4 +486,12 @@ body {
     .product-grid > div h1 {
         font-size: 1.5rem;
     }
+}
+
+.product-list-bg {
+  background-image: url('../assets/17224941_v992-aum-blogbanner-08.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
 }

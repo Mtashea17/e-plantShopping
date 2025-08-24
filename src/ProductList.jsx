@@ -5,7 +5,7 @@ import CartItem from './CartItem.jsx';
 import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from './CartSlice';
 // eslint-disable-next-line react/prop-types
-function ProductList({ onHomeClick }) {
+function ProductList({ onHomeClick, onAddToCartNotification }) {
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
 
@@ -236,7 +236,6 @@ function ProductList({ onHomeClick }) {
     const handleContinueShopping = (e) => {
         e.preventDefault();
         setShowCart(false);
-        setShowPlants(true); // Show the plants section
     };
 
 
@@ -250,6 +249,9 @@ function ProductList({ onHomeClick }) {
             quantity: 1
         };
         dispatch(addItem(cartItem));
+        if (onAddToCartNotification) {
+            onAddToCartNotification(plant.name);
+        }
     };
 
     return (
@@ -261,11 +263,11 @@ function ProductList({ onHomeClick }) {
                         <span style={{ fontSize: 30 }}>🌿</span>
                     </div>
                     <div className="brand-text">
-                        <h1>Paradise Nursery</h1>
-                        <p>Where Green Meets Serenity</p>
+                        <h1>Home Grown</h1>
+                        <p>Where Nature Thrives</p>
                     </div>
                 </a>
-                <div className="nav-center">Plants</div>
+                <a href="#" className="nav-center" onClick={handlePlantsClick}>Plants</a>
                 <button className="cart-icon" onClick={handleCartClick}>
                     🛒 Cart
                     <span className="cart-count">{cartItems.length}</span>
@@ -273,35 +275,39 @@ function ProductList({ onHomeClick }) {
             </nav>
 
             {/* Main Content */}
-            <div className="container">
-                <div className="section-title">
-                    <h2>Air Purifying Plants</h2>
-                </div>
-                {!showCart ? (
-                    <div className="product-grid">
-                        {plantsArray[0].plants.map((plant, plantIndex) => {
-                            const isInCart = cartItems.some(item => item.id === plant.name);
-                            return (
-                                <div className="product-card" key={plantIndex}>
-                                    <div className="product-image-container">
-                                        <img src={plant.image} alt={plant.name} className="product-image" />
-                                        <div className="sale-badge">SALE</div>
-                                    </div>
-                                    <div className="product-info">
-                                        <h3 className="product-name">{plant.name}</h3>
-                                        <div className="product-price">{plant.cost}</div>
-                                        <p className="product-description">{plant.description}</p>
-                                        <button className="add-to-cart-btn" onClick={() => handleAddToCart(plant)} disabled={isInCart}>
-                                            {isInCart ? 'Added' : 'Add to Cart'}
-                                        </button>
-                                    </div>
+            <div className="container product-list-bg">
+                    {!showCart ? (
+                        plantsArray.map((categoryObj, categoryIndex) => (
+                            <div key={categoryIndex} className="category-section">
+                                <div className="section-title">
+                                    <h2>{categoryObj.category}</h2>
                                 </div>
-                            );
-                        })}
-                    </div>
-                ) : (
-                    <CartItem onContinueShopping={handleContinueShopping} />
-                )}
+                                <div className="product-grid">
+                                    {categoryObj.plants.map((plant, plantIndex) => {
+                                        const isInCart = cartItems.some(item => item.id === plant.name);
+                                        return (
+                                            <div className="product-card" key={plantIndex}>
+                                                <div className="product-image-container">
+                                                    <img src={plant.image} alt={plant.name} className="product-image" />
+                                                    <div className="sale-badge">SALE</div>
+                                                </div>
+                                                <div className="product-info">
+                                                    <h3 className="product-name">{plant.name}</h3>
+                                                    <div className="product-price">{plant.cost}</div>
+                                                    <p className="product-description">{plant.description}</p>
+                                                    <button className="add-to-cart-btn" onClick={() => handleAddToCart(plant)} disabled={isInCart}>
+                                                        {isInCart ? 'Added' : 'Add to Cart'}
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        );
+                                    })}
+                                </div>
+                            </div>
+                        ))
+                    ) : (
+                        <CartItem onContinueShopping={handleContinueShopping} />
+                    )}
             </div>
             {/* Notification placeholder (if needed for React) */}
             {/* <div className="notification" id="notification"></div> */}

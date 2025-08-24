@@ -1,3 +1,11 @@
+/* Product List Background Image */
+.product-list-bg {
+    background-image: url('../assets/17224941_v992-aum-blogbanner-08.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+}
 /* Enhanced App.css with Paradise Nursery styling integration */
 
 :root {
@@ -17,7 +25,7 @@
 }
 
 body {
-    font-family: 'Poppins', Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: var(--ivory-mist);
     color: var(--charcoal-soil);
     line-height: 1.6;
@@ -46,7 +54,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('https://media.istockphoto.com/id/1342107506/photo/happy-african-american-father-and-son-watering-plants-together.jpg?s=612x612&w=0&k=20&c=SIqh3NEcxS4L3NCGpEAgMsqEUQKVtQ2Dbvm0MuI2_sI=');
+    background-image: url('https://www.decoratorsbest.com/cdn/shop/files/6795159732270_9303704a-d3da-47bc-8e2b-1e1befbe963f.jpg?v=1750411811&width=1125');
     background-size: cover;
     background-position: center;
     filter: brightness(0.7);
@@ -225,7 +233,7 @@ body {
     top: -8px;
     right: -8px;
     background: linear-gradient(135deg, var(--terracotta-blush), var(--gold-leaf));
-    color: #fff;
+    color: white;
     border-radius: 50%;
     width: 24px;
     height: 24px;
@@ -237,6 +245,66 @@ body {
     z-index: 2;
     box-shadow: 0 4px 12px rgba(217, 165, 138, 0.3);
     border: 2px solid #fff;
+}
+
+/* Notification styles */
+
+.notification {
+    position: fixed;
+    top: 32px;
+    right: 32px;
+    background: linear-gradient(135deg, var(--charcoal-soil), var(--sage-velvet));
+    color: black;
+    padding: 18px 32px;
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(60, 60, 59, 0.25);
+    font-family: 'Montserrat', 'Poppins', Arial, sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: opacity 0.4s, transform 0.4s;
+    z-index: 1000;
+    pointer-events: none;
+    border: 2px solid var(--gold-leaf);
+}
+
+.notification.show {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Product Price Styling */
+.product-price {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color: var(--charcoal-soil);
+    margin: 10px 0 6px 0;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(200,191,231,0.08);
+    text-align: center;
+    display: block;
+}
+/* Product Name Styling */
+.product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--charcoal-soil);
+    margin-bottom: 4px;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 4px rgba(60,60,59,0.07);
+    text-align: center;
+    display: block;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Media Queries for Responsiveness */
@@ -267,6 +335,25 @@ body {
     
     .about-us-content {
         font-size: 0.95rem;
+    }
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px 15px;
+    }
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 18px;
+    }
+    .product-card {
+        min-width: 220px;
+        max-width: 100%;
+    }
+    .product-image {
+        width: 100%;
+        height: auto;
+        max-height: 180px;
+        object-fit: cover;
     }
 }
 
@@ -306,6 +393,26 @@ body {
     
     .about-us-content {
         font-size: 0.9rem;
+    }
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 8px 10px;
+    }
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 14px;
+        overflow-x: auto;
+    }
+    .product-card {
+        min-width: 180px;
+        max-width: 100%;
+    }
+    .product-image {
+        width: 100%;
+        height: auto;
+        max-height: 140px;
+        object-fit: cover;
     }
 }
 
@@ -355,5 +462,25 @@ body {
     .about-us-content {
         font-size: 0.85rem;
         margin-bottom: 15px;
+    }
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 6px 5px;
+    }
+    .product-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 10px;
+        overflow-x: auto;
+    }
+    .product-card {
+        min-width: 140px;
+        max-width: 100%;
+    }
+    .product-image {
+        width: 100%;
+        height: auto;
+        max-height: 100px;
+        object-fit: cover;
     }
 }

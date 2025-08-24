@@ -22,7 +22,7 @@
 
 /* Body and Typography */
 body {
-	font-family: 'Poppins', Arial, sans-serif;
+	font-family: 'Montserrat', sans-serif;
 	background-color: var(--ivory-mist);
 	color: var(--charcoal-soil);
 	line-height: 1.6;
@@ -71,7 +71,7 @@ body {
 .nav-center {
 	color: var(--eucalyptus-smoke);
 	font-family: 'Montserrat', sans-serif;
-	font-size: 1.3rem;
+	font-size: 1.8rem;
 	font-weight: 600;
 }
 
@@ -211,21 +211,25 @@ body {
 
 .product-name {
 	font-family: 'Montserrat', sans-serif;
-	font-size: 1.4rem;
+	font-size: 1.9rem;
+	font-style: normal;
 	font-weight: 600;
 	color: var(--charcoal-soil);
 	margin-bottom: 8px;
 }
 
 .product-price {
-	font-size: 1.3rem;
-	font-weight: 700;
+	font-size: 20px;
+	font-family: "Cormorant Garamond", serif;
+	font-weight: bold;
 	color: var(--sage-velvet);
 	margin-bottom: 12px;
 }
 
 .product-description {
-	font-size: 0.9rem;
+	font-size: 1rem;
+	font-family: "Montserrat", sans-serif;
+	font-weight: bold;
 	color: var(--charcoal-soil);
 	opacity: 0.8;
 	margin-bottom: 20px;
@@ -236,7 +240,7 @@ body {
 /* Add to Cart Button */
 .add-to-cart-btn {
 	background: linear-gradient(135deg, var(--gold-leaf), var(--terracotta-blush));
-	color: var(--ivory-mist);
+	color: var(--black);
 	border: none;
 	padding: 12px 30px;
 	border-radius: 25px;
@@ -262,7 +266,7 @@ body {
 	top: 20px;
 	right: 20px;
 	background: linear-gradient(135deg, var(--sage-velvet), var(--eucalyptus-smoke));
-	color: var(--ivory-mist);
+	color: var(--black);
 	padding: 15px 25px;
 	border-radius: 15px;
 	box-shadow: 0 8px 25px rgba(168, 187, 162, 0.3);
@@ -292,14 +296,15 @@ body, h1, ul {
 .product-title, .product-name {
 	font-weight: 600;
 	margin-bottom: 10px;
-	font-size: 1.4rem;
+	font-size: 1.8rem;
 	font-family: "Montserrat", sans-serif;
 	font-style: normal;
 	color: var(--charcoal-soil);
 }
 
 .product-price, .product-cost {
-	font-size: 1.1rem;
+	font-size: 1.5rem;
+	font-family: "Cormorant Garamond", serif;
 	font-weight: 600;
 	margin-top: 8px;
 	color: var(--sage-velvet);
@@ -310,7 +315,7 @@ body, h1, ul {
 	flex-wrap: wrap;
 	gap: 40px;
 	justify-content: center;
-	align-items: stretch;
+	align-items: center;
 	width: 100%;
 	margin-bottom: 32px;
 }
@@ -346,7 +351,7 @@ body, h1, ul {
 
 .product-button:disabled, .add-to-cart-button:disabled {
 	background: linear-gradient(135deg, var(--eucalyptus-smoke), var(--sage-velvet));
-	color: var(--lavender-drift);
+	color: var(--ivory-mist);
 	cursor: not-allowed;
 	opacity: 0.7;
 }
@@ -371,10 +376,10 @@ body, h1, ul {
 	position: fixed;
 	right: 20px;
 	background: linear-gradient(135deg, var(--sage-velvet), var(--gold-leaf));
-	color: var(--ivory-mist);
+	color: var(--black);
 	padding: 18px 32px;
 	border-radius: 18px;
-	box-shadow: 0 8px 32px rgba(168, 187, 162, 0.18);
+	box-shadow: 0 8px 32px rgba(1, 42, 23, 0.837);
 	z-index: 1000;
 	font-weight: 700;
 	font-size: 18px;
@@ -470,7 +475,7 @@ body, h1, ul {
 	text-align: center;
 	width: 100%;
 	position: absolute;
-	animation: underlineExpand 1.2s forwards;
+	animation: underlineExpand 1.4s forwards;
 }
 
 /* Responsive Design */
